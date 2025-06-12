@@ -16,14 +16,14 @@ export default function MobileFilters({
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
-        <Button variant="outline" className="w-full flex items-center justify-center gap-2">
+        <Button variant="outline" className="w-full bg-indigo-100 hover:bg-indigo-300 flex items-center justify-center gap-2">
           <Filter className="h-4 w-4" />
           <span>Filters</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="w-full sm:max-w-md">
+      <SheetContent side="left" className="w-full text-indigo-200 sm:max-w-md bg-[#1D2045]">
         <SheetHeader>
-          <SheetTitle>Filters</SheetTitle>
+          <SheetTitle className="text-white/0">Filters</SheetTitle>
         </SheetHeader>
         <div className="mt-6 overflow-y-auto h-[calc(100vh-5rem)]">
           <FilterSidebar onChange={onChange} />

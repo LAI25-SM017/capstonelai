@@ -20,6 +20,13 @@ const config = {
     },
     extend: {
       colors: {
+        ncmidnight: '#181B39',
+        ncindigo: '#2C2D63',
+        ncnavy: '#23254C',
+        ncblue: '#4383D8',
+        ncteal: '#41C4B4',
+        ncwhite: '#FFFFFF',
+        
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

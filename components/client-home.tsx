@@ -99,18 +99,17 @@ export default function ClientHome({
   const hasFilters = !!(searchParams.subject || searchParams.level || searchParams.is_paid || searchParams.title);
 
   return (
-    <main className="min-h-screen bg-gray-50">
-
-      <section className="bg-white py-12 md:py-20 border-b">
+    <main className="min-h-screen bg-[#1D2045]">
+      <section className="bg-ncmidnight py-12 md:py-20 border-b border-indigo-800">
         <div className="container px-4 mx-auto max-w-6xl">
           <div className="max-w-3xl mx-auto text-center mb-10">
-            <h1 className="text-3xl md:text-4xl font-bold mb-2 text-gray-900">
+            <h1 className="text-3xl md:text-4xl font-bold mb-2 text-sky-200">
               NextCourse – The Next Step Starts Here
             </h1>
-            <p className="text-teal-600 font-medium text-lg mb-4">
+            <p className="text-sky-600 font-medium text-lg mb-4">
               Personalized Course Recommender
             </p>
-            <p className="text-gray-600 mb-8 text-lg">
+            <p className="text-gray-300 mb-8 text-lg">
               Find the perfect courses tailored to your interests and career goals
             </p>
             <SearchBar />
@@ -121,8 +120,8 @@ export default function ClientHome({
       {recommendedCourses.length > 0 && (
         <section className="container px-4 mx-auto max-w-6xl py-8">
             <div className="flex items-center mb-6 space-x-3">
-                <TrendingUp className="h-7 w-7 text-gray-800" />
-                <h2 className="text-2xl font-bold text-gray-900">Recommended Courses Just For You 💓</h2>
+                <TrendingUp className="h-7 w-7 text-indigo-200" />
+                <h2 className="text-2xl font-bold text-indigo-200">Recommended Courses Just For You 💖</h2>
             </div>
             <div className="flex space-x-6 overflow-x-auto pb-4 -mx-4 px-4">
                 {recommendedCourses.map((course) => (
@@ -138,7 +137,7 @@ export default function ClientHome({
         ref={mainCoursesRef}
         className="container px-4 mx-auto max-w-6xl py-8"
       >
-        <h2 className="text-2xl font-bold mb-6 text-gray-900">
+        <h2 className="text-2xl font-bold mb-6 text-indigo-100">
           {hasFilters ? "Top Courses" : "Top Courses"}
         </h2>
         <div className="lg:grid lg:grid-cols-4 lg:gap-8">
@@ -156,19 +155,19 @@ export default function ClientHome({
                     <CourseCard key={course.id} course={course} />
                   ))}
                 </div>
-                <div className="flex justify-center mt-6">
+                <div className="flex justify-center mt-6 text-indigo-100">
                   <button
-                    className="px-4 py-2 bg-gray-200 rounded-l"
+                    className="px-4 py-2 bg-ncmidnight rounded-l-lg border-r-0 border border-indigo-500 hover:bg-indigo-800 transition-colors"
                     disabled={currentPage === 1}
                     onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
                   >
                     Previous
                   </button>
-                  <span className="px-4 py-2 bg-gray-100">
+                  <span className="px-4 py-2 bg-ncmidnight text-indigo-100 border border-indigo-500">
                     Page {currentPage} of {totalPages}
                   </span>
                   <button
-                    className="px-4 py-2 bg-gray-200 rounded-r"
+                    className="px-4 py-2 bg-ncmidnight rounded-r-lg border-l-0 border border-indigo-500 hover:bg-indigo-800 transition-colors"
                     disabled={currentPage === totalPages}
                     onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
                   >

@@ -46,12 +46,12 @@ export default async function CoursesPage() {
   const randomCourses = await getRandomCourses();
 
   return (
-    <div className="container px-4 mx-auto max-w-6xl py-8">
+    <div className="container px-4 mx-auto max-w-6xl py-8 bg-[#1D2045]">
       <div className="mb-8">
-        <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
+        <h1 className="text-3xl md:text-4xl font-bold text-indigo-100">
           Course
         </h1>
-        <p className="text-lg text-gray-600 mt-2">
+        <p className="text-lg text-gray-400 mt-2">
           Random Course for You
         </p>
       </div>

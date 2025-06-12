@@ -86,14 +86,14 @@ export default async function BookmarkedCoursesPage() {
   const bookmarkedCourses = await getBookmarkedCourses(token);
 
   return (
-    <div className="container px-4 mx-auto max-w-6xl py-8 min-h-[70vh]">
+    <div className="container px-4 mx-auto max-w-6xl bg-[#1D2045] py-8 min-h-[70vh]">
       <div className="mb-8 flex items-center space-x-3">
-        <Bookmark className="h-8 w-8 text-teal-600" />
+        <Bookmark className="h-8 w-8 text-indigo-500" />
         <div>
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
+          <h1 className="text-3xl md:text-4xl font-bold text-indigo-100">
             Your saved courses
           </h1>
-          <p className="text-lg text-gray-600 mt-1">
+          <p className="text-lg text-gray-400 mt-1">
             See your saved here.
           </p>
         </div>

@@ -106,27 +106,27 @@ export default function ProfilePage() {
 
   return (
     <>
-      <div className="min-h-screen bg-gray-50 p-4 sm:p-6 lg:p-8">
+      <div className="min-h-screen bg-[#1D2045] p-4 sm:p-6 lg:p-8">
         <div className="max-w-4xl mx-auto">
           {/* Header Profil */}
-          <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 flex items-center space-x-5">
-            <div className="w-16 h-16 rounded-full bg-teal-600 flex items-center justify-center text-white text-3xl font-bold">
+          <div className="bg-ncmidnight p-6 rounded-2xl shadow-sm border border-indigo-500 flex items-center space-x-5">
+            <div className="w-16 h-16 rounded-full bg-indigo-600 flex items-center justify-center text-indigo-100 text-3xl font-bold">
               {(user.username || 'U').charAt(0).toUpperCase()}
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-gray-800">{user.username}</h1>
-              <p className="text-gray-500">{user.email}</p>
+              <h1 className="text-2xl font-bold text-indigo-100">{user.username}</h1>
+              <p className="text-gray-400">{user.email}</p>
             </div>
           </div>
 
           {/* Pengaturan Akun */}
           <div className="mt-8">
-            <h2 className="text-xl font-semibold text-gray-700 mb-4">Pengaturan Akun</h2>
-            <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 space-y-4">
+            <h2 className="text-xl font-semibold text-indigo-200 mb-4">Pengaturan Akun</h2>
+            <div className="bg-ncmidnight p-6 rounded-2xl shadow-sm border border-indigo-500 space-y-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="font-semibold text-gray-800">Preferensi Rekomendasi</h3>
-                  <p className="text-sm text-gray-500">Atur ulang pilihan subjek dan level keahlian Anda.</p>
+                  <h3 className="font-semibold text-indigo-50">Preferensi Rekomendasi</h3>
+                  <p className="text-sm text-gray-400">Atur ulang pilihan subjek dan level keahlian Anda.</p>
                 </div>
                 <button
                   onClick={() => setShowConfirmModal(true)}

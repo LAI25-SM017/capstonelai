@@ -21,7 +21,6 @@ async function getSearchResults(query: string): Promise<Course[]> {
     return []; // Jika tidak ada query, kembalikan array kosong
   }
 
-  // Asumsi endpoint pencarian menggunakan parameter `title`. Sesuaikan jika berbeda.
   const endpoint = `https://dev-nc-api.f3h.net/api/courses?search=${encodeURIComponent(query)}`;
 
   try {
@@ -31,7 +30,6 @@ async function getSearchResults(query: string): Promise<Course[]> {
       return [];
     }
     const data = await res.json();
-    // Berdasarkan API courses, data ada di dalam `data.courses`
     return data.data.courses || [];
   } catch (error) {
     console.error('Error saat fetch pencarian:', error);
@@ -43,10 +41,11 @@ async function getSearchResults(query: string): Promise<Course[]> {
 export default async function SearchPage({
   searchParams,
 }: {
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
-  // Ambil query dari URL, misalnya dari /search?query=python
-  const query = typeof searchParams.query === 'string' ? searchParams.query : '';
+  // Tunggu searchParams untuk di-resolve
+  const resolvedSearchParams = await searchParams;
+  const query = typeof resolvedSearchParams.query === 'string' ? resolvedSearchParams.query : '';
   const searchResults = await getSearchResults(query);
 
   return (
@@ -55,12 +54,12 @@ export default async function SearchPage({
         <div className="flex items-center space-x-3">
           <Search className="h-8 w-8 text-teal-600" />
           <div>
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
+            <h1 className="text-3xl md:text-4xl font-bold text-indigo-100">
               Search Results
             </h1>
             {query && (
-              <p className="text-lg text-gray-600 mt-1">
-                Menampilkan hasil untuk: <span className="font-semibold text-gray-800">"{query}"</span>
+              <p className="text-lg text-gray-400 mt-1">
+                Menampilkan hasil untuk: <span className="font-semibold text-indigo-500">"{query}"</span>
               </p>
             )}
           </div>
@@ -75,9 +74,9 @@ export default async function SearchPage({
           ))}
         </div>
       ) : (
-        <div className="text-center py-20 bg-white rounded-lg shadow-sm border">
-          <h2 className="text-2xl font-semibold text-gray-700">Tidak Ada Hasil Ditemukan</h2>
-          <p className="text-gray-500 mt-2">
+        <div className="text-center py-20 bg-ncmidnight rounded-lg shadow-sm border border-indigo-500">
+          <h2 className="text-2xl font-semibold text-indigo-700">Tidak Ada Hasil Ditemukan</h2>
+          <p className="text-gray-400 mt-2">
             Coba gunakan kata kunci lain untuk menemukan kursus yang Anda cari.
           </p>
         </div>

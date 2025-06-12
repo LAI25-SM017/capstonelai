@@ -59,7 +59,7 @@ export default function LoginPage() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-[#1D2045] px-4">
       <div className="w-full max-w-md">
-        <div className="bg-ncmidnight p-8 rounded-2xl shadow-lg border border-indigo-500">
+        <div className="bg-ncmidnight p-8 rounded-2xl shadow-lg border border-indigo-800">
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold text-indigo-100">Welcome Back</h1>
             <p className="text-gray-400 mt-2">Login to continue your learning journey.</p>
@@ -83,7 +83,7 @@ export default function LoginPage() {
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
-                className="w-full border-gray-300 px-4 py-3 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 transition"
+                className="w-full border-gray-300 px-4 py-3 rounded-lg focus:ring-indigo-500 focus:border-indigo-800 transition"
               />
             </div>
             <div>
@@ -95,7 +95,7 @@ export default function LoginPage() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
-                    className="w-full border-gray-300 px-4 py-3 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 transition"
+                    className="w-full border-gray-300 px-4 py-3 rounded-lg focus:ring-indigo-500 focus:border-indigo-800 transition"
                 />
             </div>
             <button

@@ -80,7 +80,7 @@ export default function CourseCard({ course }: Props) {
   }
 
   return (
-    <div className="bg-ncmidnight rounded-xl shadow-sm overflow-hidden border border-indigo-500 hover:shadow-md transition-shadow flex flex-col h-full">
+    <div className="bg-ncmidnight rounded-xl shadow-sm overflow-hidden border border-indigo-800 hover:shadow-md transition-shadow flex flex-col h-full">
       <Link href={course.url} className="block relative h-40 w-full">
         <Image
           src={course.image_banner_url || "/placeholder.svg"}
@@ -145,7 +145,7 @@ export default function CourseCard({ course }: Props) {
         <Link 
           href={`/recommendation2?course_id=${course.course_id}`} 
         >
-          <Button variant="outline" className="bg-ncnavy border-indigo-500 text-indigo-100 hover:bg-sky-200 w-full mt-2">
+          <Button variant="outline" className="bg-ncnavy border-indigo-800 text-indigo-100 hover:bg-sky-200 w-full mt-2">
             More Like This
           </Button>
         </Link>

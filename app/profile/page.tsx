@@ -109,7 +109,7 @@ export default function ProfilePage() {
       <div className="min-h-screen bg-[#1D2045] p-4 sm:p-6 lg:p-8">
         <div className="max-w-4xl mx-auto">
           {/* Header Profil */}
-          <div className="bg-ncmidnight p-6 rounded-2xl shadow-sm border border-indigo-500 flex items-center space-x-5">
+          <div className="bg-ncmidnight p-6 rounded-2xl shadow-sm border border-indigo-800 flex items-center space-x-5">
             <div className="w-16 h-16 rounded-full bg-indigo-600 flex items-center justify-center text-indigo-100 text-3xl font-bold">
               {(user.username || 'U').charAt(0).toUpperCase()}
             </div>
@@ -122,7 +122,7 @@ export default function ProfilePage() {
           {/* Pengaturan Akun */}
           <div className="mt-8">
             <h2 className="text-xl font-semibold text-indigo-200 mb-4">Pengaturan Akun</h2>
-            <div className="bg-ncmidnight p-6 rounded-2xl shadow-sm border border-indigo-500 space-y-4">
+            <div className="bg-ncmidnight p-6 rounded-2xl shadow-sm border border-indigo-800 space-y-4">
               <div className="flex items-center justify-between">
                 <div>
                   <h3 className="font-semibold text-indigo-50">Preferensi Rekomendasi</h3>

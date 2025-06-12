@@ -64,7 +64,7 @@ export default function FilterSidebar({
   };
 
   return (
-    <div className="bg-ncmidnight p-6 rounded-xl border border-indigo-500 sticky top-24">
+    <div className="bg-ncmidnight p-6 rounded-xl border border-indigo-800 sticky top-24">
       <div className="flex justify-between items-center mb-4">
         <h3 className="font-bold text-lg text-indigo-200">Filters</h3>
         <button onClick={handleReset} className="text-sm text-sky-500 hover:underline">
@@ -81,7 +81,7 @@ export default function FilterSidebar({
               {SUBJECT_OPTIONS.map((option) => (
                 <div key={option.id} className="flex items-center space-x-2">
                   <Checkbox
-                    className="border-indigo-500 data-[state=checked]:bg-indigo-500 data-[state=checked]:text-white"
+                    className="border-indigo-800 data-[state=checked]:bg-indigo-500 data-[state=checked]:text-white"
                     id={`subject-${option.id}`}
                     checked={selectedFilters.subject.includes(option.id)}
                     onCheckedChange={() => handleFilterChange('subject', option.id)}
@@ -103,7 +103,7 @@ export default function FilterSidebar({
               {LEVEL_OPTIONS.map((option) => (
                 <div key={option.id} className="flex items-center space-x-2">
                   <Checkbox
-                    className="border-indigo-500 data-[state=checked]:bg-indigo-500 data-[state=checked]:text-white"
+                    className="border-indigo-800 data-[state=checked]:bg-indigo-500 data-[state=checked]:text-white"
                     id={`level-${option.id}`}
                     checked={selectedFilters.level.includes(option.id)}
                     onCheckedChange={() => handleFilterChange('level', option.id)}
@@ -124,7 +124,7 @@ export default function FilterSidebar({
             <div className="space-y-3 pt-2">
               <div className="flex items-center space-x-2">
                 <Checkbox
-                  className="border-indigo-500 data-[state=checked]:bg-indigo-500 data-[state=checked]:text-white"
+                  className="border-indigo-800 data-[state=checked]:bg-indigo-500 data-[state=checked]:text-white"
                   id="price-free"
                   checked={selectedFilters.is_paid.includes('0')}
                   onCheckedChange={() => handleFilterChange('is_paid', '0')}
@@ -135,7 +135,7 @@ export default function FilterSidebar({
               </div>
               <div className="flex items-center space-x-2">
                 <Checkbox
-                  className="border-indigo-500 data-[state=checked]:bg-indigo-500 data-[state=checked]:text-white"
+                  className="border-indigo-800 data-[state=checked]:bg-indigo-500 data-[state=checked]:text-white"
                   id="price-paid"
                   checked={selectedFilters.is_paid.includes('1')}
                   onCheckedChange={() => handleFilterChange('is_paid', '1')}

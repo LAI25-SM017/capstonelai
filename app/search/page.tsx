@@ -74,7 +74,7 @@ export default async function SearchPage({
           ))}
         </div>
       ) : (
-        <div className="text-center py-20 bg-ncmidnight rounded-lg shadow-sm border border-indigo-500">
+        <div className="text-center py-20 bg-ncmidnight rounded-lg shadow-sm border border-indigo-800">
           <h2 className="text-2xl font-semibold text-indigo-700">Tidak Ada Hasil Ditemukan</h2>
           <p className="text-gray-400 mt-2">
             Coba gunakan kata kunci lain untuk menemukan kursus yang Anda cari.

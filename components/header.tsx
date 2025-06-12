@@ -62,12 +62,12 @@ export default function Header() {
     return (
       <div className={`flex items-center ${isMobile ? 'space-x-4 pt-2' : 'space-x-8'}`}>
         <Link href="/auth/login" onClick={closeMenu}>
-          <Button variant="outline" className="hover:border-indigo-500 hover:bg-indigo-100 hover:text-indigo-900 bg-[#1D2045] text-indigo-100 w-full rounded-lg">
+          <Button variant="outline" className="hover:border-indigo-800 hover:bg-indigo-100 hover:text-indigo-900 bg-[#1D2045] text-indigo-100 w-full rounded-lg">
             Login
           </Button>
         </Link>
         <Link href="/auth/signup" onClick={closeMenu}>
-          <Button variant="outline" className="border-indigo-500 bg-indigo-100 text-indigo-900 hover:bg-[#1D2045] hover:text-indigo-100 w-full rounded-lg">
+          <Button variant="outline" className="border-indigo-800 bg-indigo-100 text-indigo-900 hover:bg-[#1D2045] hover:text-indigo-100 w-full rounded-lg">
             Sign Up
           </Button>
         </Link>

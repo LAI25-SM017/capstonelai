@@ -157,17 +157,17 @@ export default function ClientHome({
                 </div>
                 <div className="flex justify-center mt-6 text-indigo-100">
                   <button
-                    className="px-4 py-2 bg-ncmidnight rounded-l-lg border-r-0 border border-indigo-500 hover:bg-indigo-800 transition-colors"
+                    className="px-4 py-2 bg-ncmidnight rounded-l-lg border-r-0 border border-indigo-800 hover:bg-indigo-800 transition-colors"
                     disabled={currentPage === 1}
                     onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
                   >
                     Previous
                   </button>
-                  <span className="px-4 py-2 bg-ncmidnight text-indigo-100 border border-indigo-500">
+                  <span className="px-4 py-2 bg-ncmidnight text-indigo-100 border border-indigo-800">
                     Page {currentPage} of {totalPages}
                   </span>
                   <button
-                    className="px-4 py-2 bg-ncmidnight rounded-r-lg border-l-0 border border-indigo-500 hover:bg-indigo-800 transition-colors"
+                    className="px-4 py-2 bg-ncmidnight rounded-r-lg border-l-0 border border-indigo-800 hover:bg-indigo-800 transition-colors"
                     disabled={currentPage === totalPages}
                     onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
                   >

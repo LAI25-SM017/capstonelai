@@ -52,7 +52,7 @@ export default async function SearchPage({
     <div className="container px-4 mx-auto max-w-6xl py-8 min-h-[70vh]">
       <div className="mb-8">
         <div className="flex items-center space-x-3">
-          <Search className="h-8 w-8 text-teal-600" />
+          <Search className="h-8 w-8 text-indigo-500" />
           <div>
             <h1 className="text-3xl md:text-4xl font-bold text-indigo-100">
               Search Results

@@ -1,11 +1,10 @@
 'use client';
 
-import { useEffect, useState } from "react";
-import { useRouter, usePathname, useSearchParams } from "next/navigation";
+import { useState } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
-// Definisikan opsi filter yang sesuai dengan nilai di API Anda
+// Define filter options
 const SUBJECT_OPTIONS = [
   { id: '1', name: 'Business Finance' },
   { id: '2', name: 'Graphic Design' },
@@ -20,70 +19,68 @@ const LEVEL_OPTIONS = [
   { id: '4', name: 'All Levels' },
 ];
 
-export default function FilterSidebar() {
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-
-  // State untuk menyimpan filter yang dipilih
+export default function FilterSidebar({
+  onChange,
+}: {
+  onChange: (filters: { [key: string]: string[] }) => void;
+}) {
+  // State to store selected filters
   const [selectedFilters, setSelectedFilters] = useState<{ [key: string]: string[] }>({
-    subject: searchParams.get('subject')?.split(',') || [],
-    level: searchParams.get('level')?.split(',') || [],
-    is_paid: searchParams.get('is_paid')?.split(',') || [],
+    subject: [],
+    level: [],
+    is_paid: [],
   });
 
-  // Fungsi untuk menangani perubahan pada checkbox
+  // Handle filter changes
   const handleFilterChange = (filterType: string, value: string) => {
-    setSelectedFilters(prev => {
+    setSelectedFilters((prev) => {
       const currentValues = prev[filterType] || [];
       const newValues = currentValues.includes(value)
-        ? currentValues.filter(v => v !== value) // Hapus jika sudah ada
-        : [...currentValues, value]; // Tambah jika belum ada
-      
-      return { ...prev, [filterType]: newValues };
+        ? currentValues.filter((v) => v !== value) // Remove if already selected
+        : [...currentValues, value]; // Add if not selected
+
+      const updatedFilters = { ...prev, [filterType]: newValues };
+
+      // Return the updated filters for local state
+      return updatedFilters;
     });
+
+    // Notify the parent component after the state update
+    setTimeout(() => {
+      onChange({
+        ...selectedFilters,
+        [filterType]: selectedFilters[filterType]?.includes(value)
+          ? selectedFilters[filterType].filter((v) => v !== value)
+          : [...(selectedFilters[filterType] || []), value],
+      });
+    }, 0);
   };
 
-  // Fungsi untuk mereset semua filter
+  // Reset all filters
   const handleReset = () => {
-    setSelectedFilters({ subject: [], level: [], is_paid: [] });
-    router.push(pathname); // Navigasi ke URL tanpa parameter
+    const resetFilters = { subject: [], level: [], is_paid: [] };
+    setSelectedFilters(resetFilters);
+    onChange(resetFilters); // Notify parent about reset
   };
-
-  // useEffect untuk memperbarui URL saat filter berubah
-  useEffect(() => {
-    const params = new URLSearchParams();
-    Object.entries(selectedFilters).forEach(([key, values]) => {
-      if (values.length > 0) {
-        params.set(key, values.join(','));
-      }
-    });
-
-    // Gunakan timeout untuk menunda navigasi (debounce), mengurangi request berlebihan
-    const debounceTimeout = setTimeout(() => {
-      router.push(`${pathname}?${params.toString()}`);
-    }, 300); // Tunda 300ms setelah klik terakhir
-
-    // Bersihkan timeout jika ada perubahan baru sebelum 300ms
-    return () => clearTimeout(debounceTimeout);
-  }, [selectedFilters, pathname, router]);
 
   return (
     <div className="bg-white p-6 rounded-xl border border-gray-200 sticky top-24">
       <div className="flex justify-between items-center mb-4">
         <h3 className="font-bold text-lg text-gray-900">Filters</h3>
-        <button onClick={handleReset} className="text-sm text-teal-600 hover:underline">Reset</button>
+        <button onClick={handleReset} className="text-sm text-teal-600 hover:underline">
+          Reset
+        </button>
       </div>
 
       <Accordion type="multiple" defaultValue={["category", "level", "price"]}>
-        {/* Filter Kategori/Subjek */}
+        {/* Subject Filter */}
         <AccordionItem value="category">
           <AccordionTrigger className="text-base font-medium">Subject</AccordionTrigger>
           <AccordionContent>
             <div className="space-y-3 pt-2">
-              {SUBJECT_OPTIONS.map(option => (
+              {SUBJECT_OPTIONS.map((option) => (
                 <div key={option.id} className="flex items-center space-x-2">
-                  <Checkbox 
+                  <Checkbox
                     id={`subject-${option.id}`}
                     checked={selectedFilters.subject.includes(option.id)}
                     onCheckedChange={() => handleFilterChange('subject', option.id)}
@@ -97,14 +94,14 @@ export default function FilterSidebar() {
           </AccordionContent>
         </AccordionItem>
 
-        {/* Filter Level */}
+        {/* Level Filter */}
         <AccordionItem value="level">
           <AccordionTrigger className="text-base font-medium">Difficulty Level</AccordionTrigger>
           <AccordionContent>
             <div className="space-y-3 pt-2">
-              {LEVEL_OPTIONS.map(option => (
+              {LEVEL_OPTIONS.map((option) => (
                 <div key={option.id} className="flex items-center space-x-2">
-                  <Checkbox 
+                  <Checkbox
                     id={`level-${option.id}`}
                     checked={selectedFilters.level.includes(option.id)}
                     onCheckedChange={() => handleFilterChange('level', option.id)}
@@ -117,32 +114,32 @@ export default function FilterSidebar() {
             </div>
           </AccordionContent>
         </AccordionItem>
-        
-        {/* Filter Harga */}
+
+        {/* Price Filter */}
         <AccordionItem value="price">
           <AccordionTrigger className="text-base font-medium">Price</AccordionTrigger>
           <AccordionContent>
             <div className="space-y-3 pt-2">
-               <div className="flex items-center space-x-2">
-                  <Checkbox 
-                    id="price-free"
-                    checked={selectedFilters.is_paid.includes('0')}
-                    onCheckedChange={() => handleFilterChange('is_paid', '0')}
-                  />
-                  <label htmlFor="price-free" className="text-sm font-medium leading-none cursor-pointer">
-                    FREE
-                  </label>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Checkbox 
-                    id="price-paid"
-                    checked={selectedFilters.is_paid.includes('1')}
-                    onCheckedChange={() => handleFilterChange('is_paid', '1')}
-                  />
-                  <label htmlFor="price-paid" className="text-sm font-medium leading-none cursor-pointer">
-                    Berbayar
-                  </label>
-                </div>
+              <div className="flex items-center space-x-2">
+                <Checkbox
+                  id="price-free"
+                  checked={selectedFilters.is_paid.includes('0')}
+                  onCheckedChange={() => handleFilterChange('is_paid', '0')}
+                />
+                <label htmlFor="price-free" className="text-sm font-medium leading-none cursor-pointer">
+                  Free
+                </label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Checkbox
+                  id="price-paid"
+                  checked={selectedFilters.is_paid.includes('1')}
+                  onCheckedChange={() => handleFilterChange('is_paid', '1')}
+                />
+                <label htmlFor="price-paid" className="text-sm font-medium leading-none cursor-pointer">
+                  Paid
+                </label>
+              </div>
             </div>
           </AccordionContent>
         </AccordionItem>

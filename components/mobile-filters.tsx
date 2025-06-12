@@ -6,7 +6,11 @@ import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import FilterSidebar from "./filter-sidebar"
 
-export default function MobileFilters() {
+export default function MobileFilters({
+  onChange,
+}: {
+  onChange: (filters: { [key: string]: string[] }) => void
+}) {
   const [open, setOpen] = useState(false)
 
   return (
@@ -22,7 +26,7 @@ export default function MobileFilters() {
           <SheetTitle>Filters</SheetTitle>
         </SheetHeader>
         <div className="mt-6 overflow-y-auto h-[calc(100vh-5rem)]">
-          <FilterSidebar />
+          <FilterSidebar onChange={onChange} />
         </div>
       </SheetContent>
     </Sheet>

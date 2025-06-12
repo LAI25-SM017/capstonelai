@@ -62,12 +62,12 @@ export default function Header() {
     return (
       <div className={`flex items-center ${isMobile ? 'space-x-4 pt-2' : 'space-x-8'}`}>
         <Link href="/auth/login" onClick={closeMenu}>
-          <Button variant="outline" className="border-teal-600 text-teal-600 hover:bg-teal-50 w-full">
+          <Button variant="outline" className="hover:border-indigo-500 hover:bg-indigo-100 hover:text-indigo-900 bg-[#1D2045] text-indigo-100 w-full rounded-lg">
             Login
           </Button>
         </Link>
         <Link href="/auth/signup" onClick={closeMenu}>
-          <Button className="bg-teal-600 hover:bg-teal-700 w-full">
+          <Button variant="outline" className="border-indigo-500 bg-indigo-100 text-indigo-900 hover:bg-[#1D2045] hover:text-indigo-100 w-full rounded-lg">
             Sign Up
           </Button>
         </Link>
@@ -76,7 +76,7 @@ export default function Header() {
   }
 
   return (
-    <header className="bg-white border-b sticky top-0 z-50">
+    <header className="bg-ncmidnight border-b border-indigo-800 sticky top-0 z-50">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -90,18 +90,18 @@ export default function Header() {
                 style={{ objectFit: 'contain' }} // Menjaga aspek rasio gambar
               />
             </div>
-            <span className="font-bold text-xl text-gray-900">NextCourse</span>
+            <span className="font-bold text-xl text-gray-200">NextCourse</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="text-gray-900 font-medium hover:text-teal-600 transition-colors">
+          <nav className="hidden md:flex items-center space-x-8 text-gray-200">
+            <Link href="/" className="font-medium hover:text-sky-500 transition-colors">
               Home
             </Link>
-            <Link href="/courses" className="text-gray-900 font-medium hover:text-teal-600 transition-colors">
+            <Link href="/courses" className="font-medium hover:text-sky-500 transition-colors">
               Course
             </Link>
-            <Link href="/about" className="text-gray-900 font-medium hover:text-teal-600 transition-colors">
+            <Link href="/about" className="font-medium hover:text-sky-500 transition-colors">
               About
             </Link>
             <AuthButtons />

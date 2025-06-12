@@ -57,12 +57,12 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-50 px-4">
+    <div className="flex items-center justify-center min-h-screen bg-[#1D2045] px-4">
       <div className="w-full max-w-md">
-        <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
+        <div className="bg-ncmidnight p-8 rounded-2xl shadow-lg border border-indigo-500">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-800">Welcome Back</h1>
-            <p className="text-gray-500 mt-2">Login to continue your learning journey.</p>
+            <h1 className="text-3xl font-bold text-indigo-100">Welcome Back</h1>
+            <p className="text-gray-400 mt-2">Login to continue your learning journey.</p>
           </div>
 
           {/* Menampilkan pesan error jika ada */}
@@ -75,7 +75,7 @@ export default function LoginPage() {
 
           <form onSubmit={handleLogin} className="space-y-5">
             <div>
-              <label htmlFor="username" className="block text-sm font-medium text-gray-700 mb-1">Username</label>
+              <label htmlFor="username" className="block text-sm font-medium text-indigo-300 mb-1">Username</label>
               <input
                 id="username"
                 type="text"
@@ -83,11 +83,11 @@ export default function LoginPage() {
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
-                className="w-full border-gray-300 px-4 py-3 rounded-lg focus:ring-teal-500 focus:border-teal-500 transition"
+                className="w-full border-gray-300 px-4 py-3 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 transition"
               />
             </div>
             <div>
-                <label htmlFor="password"className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                <label htmlFor="password"className="block text-sm font-medium text-indigo-300 mb-1">Password</label>
                 <input
                     id="password"
                     type="password"
@@ -95,13 +95,13 @@ export default function LoginPage() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
-                    className="w-full border-gray-300 px-4 py-3 rounded-lg focus:ring-teal-500 focus:border-teal-500 transition"
+                    className="w-full border-gray-300 px-4 py-3 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 transition"
                 />
             </div>
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-teal-600 text-white py-3 rounded-lg font-semibold hover:bg-teal-700 transition-colors disabled:bg-teal-400 disabled:cursor-not-allowed flex items-center justify-center"
+              className="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition-colors disabled:bg-indigo-400 disabled:cursor-not-allowed flex items-center justify-center"
             >
               {loading ? (
                 <svg className="animate-spin h-5 w-5 mr-3" viewBox="0 0 24 24">
@@ -112,9 +112,9 @@ export default function LoginPage() {
             </button>
           </form>
           
-          <p className="text-center text-sm text-gray-600 mt-8">
+          <p className="text-center text-sm text-gray-400 mt-8">
             No account yet?{' '}
-            <Link href="/signup" className="font-medium text-teal-600 hover:text-teal-500">
+            <Link href="/signup" className="font-medium text-indigo-500 hover:text-indigo-300">
               Signup Here
             </Link>
           </p>

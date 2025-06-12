@@ -80,7 +80,7 @@ export default function CourseCard({ course }: Props) {
   }
 
   return (
-    <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow flex flex-col h-full">
+    <div className="bg-ncmidnight rounded-xl shadow-sm overflow-hidden border border-indigo-500 hover:shadow-md transition-shadow flex flex-col h-full">
       <Link href={course.url} className="block relative h-40 w-full">
         <Image
           src={course.image_banner_url || "/placeholder.svg"}
@@ -98,10 +98,10 @@ export default function CourseCard({ course }: Props) {
       <div className="p-5 flex flex-col flex-grow">
         <div className="flex justify-between items-start mb-2">
           <Link href={course.url} className="flex-grow group pr-2">
-            <h3 className="text-lg font-semibold text-gray-900 line-clamp-2 group-hover:text-teal-600 transition-colors">
+            <h3 className="text-lg font-semibold text-indigo-100 line-clamp-2 group-hover:text-indigo-500 transition-colors">
               {course.course_title}
             </h3>
-            <p className="text-sm text-gray-500">{course.subject}</p>
+            <p className="text-sm text-gray-400">{course.subject}</p>
           </Link>
 
           <button
@@ -113,7 +113,7 @@ export default function CourseCard({ course }: Props) {
             <Bookmark
               className={`h-6 w-6 transition-colors ${
                 isBookmarked
-                  ? 'text-teal-500 fill-teal-500'
+                  ? 'text-indigo-500 fill-indigo-500'
                   : 'text-gray-400 hover:text-gray-600'
               }`}
             />
@@ -122,8 +122,8 @@ export default function CourseCard({ course }: Props) {
 
         </div>
 
-        <p className="text-sm text-gray-500 mb-1">{course.level}</p>
-        <p className="text-green-600 font-medium text-sm mb-3">
+        <p className="text-sm text-gray-400 mb-1">{course.level}</p>
+        <p className="text-sky-600 font-medium text-sm mb-3">
           {course.is_paid ? `$${course.price}` : "FREE"}
         </p>
         
@@ -136,19 +136,19 @@ export default function CourseCard({ course }: Props) {
           href={course.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="block w-full text-center bg-teal-600 text-white px-4 py-2 mt-auto rounded-md text-sm hover:bg-teal-700 transition-colors"
+          className="block w-full text-center bg-sky-600 text-sky-100 px-4 py-2 mt-auto rounded-md text-sm hover:bg-sky-700 transition-colors"
           onClick={(e) => e.stopPropagation()}
         >
           View Course
         </a>
 
         <Link 
-  href={`/recommendation2?course_id=${course.course_id}`} 
->
-  <Button variant="outline" className="border-teal-600 text-teal-600 hover:bg-teal-50 w-full">
-    More Like This
-  </Button>
-</Link>
+          href={`/recommendation2?course_id=${course.course_id}`} 
+        >
+          <Button variant="outline" className="bg-ncnavy border-indigo-500 text-indigo-100 hover:bg-sky-200 w-full mt-2">
+            More Like This
+          </Button>
+        </Link>
       </div>
     </div>
   )

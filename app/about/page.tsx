@@ -1,6 +1,6 @@
 export default function AboutPage() {
     return (
-      <main className="min-h-screen bg-white text-gray-800 py-12 px-6 max-w-4xl mx-auto">
+      <main className="min-h-screen text-indigo-100 py-12 px-6 max-w-4xl mx-auto">
         <h1 className="text-3xl font-bold mb-4 text-center">About NextCourse</h1>
         <p className="text-lg mb-6 text-center">
           <strong>NextCourse</strong> is a personalized course recommender platform that helps learners discover the most relevant online courses tailored to their interests, preferences, and career goals.
